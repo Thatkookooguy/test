@@ -1,0 +1,121 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev:start",
+      "detail": "Start both server & client for development",
+      "dependsOn": [
+        "dev:server",
+        "dev:client-proxy"
+      ],
+      "problemMatcher": [],
+      "options": {
+        "statusbar": {
+          "color": "#35AC5E"
+        }
+      }
+    },
+    {
+      "label": "dev:client-proxy",
+      "detail": "client in proxy\\watch mode",
+      "type": "npm",
+      "script": "start:proxy",
+      "path": "client/",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "devwatch"
+      },
+      "options": {
+        "statusbar": {
+          "color": "#35AC5E"
+        }
+      }
+    },
+    {
+      "label": "dev:server",
+      "detail": "server in watch mode",
+      "type": "npm",
+      "script": "start:server",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "devwatch"
+      },
+      "options": {
+        "statusbar": {
+          "color": "#35AC5E"
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "Build Production",
+      "detail": "Will build both Server & Client. Output in ./dist/",
+      "options": {
+        "statusbar": {
+          "color": "#209CEE"
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "test:cov",
+      "path": "server/",
+      "problemMatcher": [],
+      "label": "TESTS: Server Unit-tests and Coverage",
+      "detail": "Run Server unit-tests",
+      "options": {
+        "statusbar": {
+          "color": "#FFDD57"
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "test:e2e",
+      "path": "server/",
+      "problemMatcher": [],
+      "label": "TESTS: API-tests",
+      "detail": "Run API Tests (server e2e)",
+      "options": {
+        "statusbar": {
+          "color": "#FFDD57"
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "e2e",
+      "path": "client/",
+      "problemMatcher": [],
+      "label": "TESTS: E2E-tests",
+      "detail": "Run E2E tests (client e2e. includes HTML interaction)",
+      "options": {
+        "statusbar": {
+          "color": "#FFDD57"
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "test:cov",
+      "path": "client/",
+      "group": "test",
+      "label": "TEST: Client Unit-tests and Coverage",
+      "detail": "Run client unit-tests",
+      "isBackground": true,
+      "problemMatcher": "$karma-jasmine2",
+      "options": {
+        "statusbar": {
+          "color": "#FFDD57"
+        }
+      }
+    }
+  ]
+}
